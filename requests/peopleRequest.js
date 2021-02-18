@@ -1,5 +1,6 @@
 const https = require("https");
 const { fileGenerator } = require("../utils/fileGenerator");
+const { filterNorthcodersArray } = require("../utils/utils");
 
 // 1. Use node's HTTP module to retrieve a list of all the available people at the following end point: `https://nc-leaks.herokuapp.com/api/people`.
 
@@ -22,10 +23,15 @@ const getPeople = () => {
     response.on("end", () => {
       const parsedBody = JSON.parse(body);
       const people = parsedBody.people;
+      //   console.log(Array.isArray(people), "PEOPLE");
 
-      console.log(people, "PEOPLE");
+      const northcoders = filterNorthcodersArray(people);
+      //   console.log(northcoders);
 
-      fileGenerator(readableString, "Northoders.md", (err, readMeData) => {
+      stringNorthcoders = JSON.stringify(northcoders);
+      console.log(stringNorthcoders);
+
+      fileGenerator(stringNorthcoders, "Northoders.md", (err, readMeData) => {
         if (err) callback(err);
         else console.log("got northcoders");
       });
