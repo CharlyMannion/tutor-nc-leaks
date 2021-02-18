@@ -1,5 +1,5 @@
 const https = require("https");
-const { fileGenerator } = require("./utils/util");
+const { fileGenerator } = require("./utils/fileGenerator");
 
 // Making a request to an API and receiving the response. We are the client.
 

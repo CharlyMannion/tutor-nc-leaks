@@ -2,7 +2,7 @@
   "name": "tutor-nc-leaks",
   "version": "1.0.0",
   "description": "Northcoders have set up an api to serve data about past and present employees here: https://nc-leaks.herokuapp.com. A northcoders whistleblower has left you some instructions on how to obtain this data and leak it to the world on an api endpoint.",
-  "main": "index.js",
+  "main": "instructionRequest.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
