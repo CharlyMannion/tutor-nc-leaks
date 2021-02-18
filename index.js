@@ -1,14 +1,7 @@
 const https = require("https");
-const fs = require("fs");
+const { fileGenerator } = require("./utils/util");
 
 // Making a request to an API and receiving the response. We are the client.
-
-const fileGenerator = (contents, fileName, callback) => {
-  fs.writeFile(`./${fileName}`, `${contents}`, (err, readMeData) => {
-    if (err) callback(err);
-    else callback(null, readMeData);
-  });
-};
 
 const getInstructions = () => {
   const options = {
