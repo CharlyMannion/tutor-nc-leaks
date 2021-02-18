@@ -4,7 +4,7 @@
   "description": "Northcoders have set up an api to serve data about past and present employees here: https://nc-leaks.herokuapp.com. A northcoders whistleblower has left you some instructions on how to obtain this data and leak it to the world on an api endpoint.",
   "main": "instructionRequest.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/CharlyMannion/tutor-nc-leaks/issues"
   },
-  "homepage": "https://github.com/CharlyMannion/tutor-nc-leaks#readme"
+  "homepage": "https://github.com/CharlyMannion/tutor-nc-leaks#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
