@@ -3,8 +3,8 @@ const fs = require("fs");
 
 // Making a request to an API and receiving the response. We are the client.
 
-const markdownGenerator = (contents, callback) => {
-  fs.writeFile(`./README.md`, `${contents}`, (err, readMeData) => {
+const fileGenerator = (contents, fileName, callback) => {
+  fs.writeFile(`./${fileName}`, `${contents}`, (err, readMeData) => {
     if (err) callback(err);
     else callback(null, readMeData);
   });
@@ -38,7 +38,7 @@ const getInstructions = () => {
       const readableString = parsedBody.crypticString;
       //   console.log(readableString, "PARSED TO READABLE STRING");
 
-      markdownGenerator(readableString, (err, readMeData) => {
+      fileGenerator(readableString, "README.md", (err, readMeData) => {
         if (err) callback(err);
         else console.log("readme file has been made");
       });
