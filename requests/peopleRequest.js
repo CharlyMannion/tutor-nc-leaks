@@ -31,10 +31,14 @@ const getPeople = () => {
       stringNorthcoders = JSON.stringify(northcoders);
       console.log(stringNorthcoders);
 
-      fileGenerator(stringNorthcoders, "Northoders.md", (err, readMeData) => {
-        if (err) callback(err);
-        else console.log("got northcoders");
-      });
+      fileGenerator(
+        stringNorthcoders,
+        "data/northoders.json",
+        (err, readMeData) => {
+          if (err) callback(err);
+          else console.log("got northcoders");
+        }
+      );
     });
   });
 
