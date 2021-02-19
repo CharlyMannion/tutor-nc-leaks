@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Felix",
+    "age": 14,
+    "grumpy": true
+  },
+  {
+    "name": "Tom",
+    "age": 5,
+    "grumpy": false
+  },
+  {
+    "name": "Mr Tiddles",
+    "age": 1,
+    "grumpy": false
+  },
+  {
+    "name": "Garfield",
+    "age": 20,
+    "grumpy": true
+  },
+  {
+    "name": "Opal",
+    "age": 6,
+    "grumpy": true
+  },
+  {
+    "name": "Opal",
+    "age": 6,
+    "grumpy": true
+  }
+]

@@ -49,5 +49,3 @@ server.listen(9090, (err) => {
   if (err) console.log(err);
   else console.log("the server is running on 9090");
 });
-
-// IN INSOMNIA: GET localhost:9090/api => "hello friend"
