@@ -1,0 +1,60 @@
+[
+  {
+    "username": "anatdean",
+    "pets": [{ "name": "Shnitzel", "kind": "cat", "alive": true }]
+  },
+  {
+    "username": "icellusedkars",
+    "pets": [
+      { "name": "Otis", "kind": "dog", "alive": false },
+      { "name": "Branston", "kind": "dog", "alive": true }
+    ]
+  },
+  {
+    "username": "RuthYMNg",
+    "pets": [{ "name": "Henna", "kind": "cat", "alive": false }]
+  },
+  {
+    "username": "dedekind561",
+    "pets": [
+      { "name": "Elgar", "kind": "pidgeon", "alive": true },
+      { "name": "Rodrigo", "kind": "alpaca", "alive": true }
+    ]
+  },
+  {
+    "username": "popcorn",
+    "pets": [
+      { "name": "Opal", "kind": "cat", "alive": true },
+      { "name": "Jeffry", "kind": "cat", "alive": false }
+    ]
+  },
+  {
+    "username": "tomosim",
+    "pets": [
+      { "name": "Barney", "kind": "dog", "alive": true },
+      { "name": "Shania", "kind": "rock", "alive": false }
+    ]
+  },
+  {
+    "username": "MissMallion",
+    "pets": [
+      { "name": "Holly", "kind": "hamster", "alive": false },
+      { "name": "James Pond", "kind": "goldfish", "alive": false }
+    ]
+  },
+  {
+    "username": "P-Copley",
+    "pets": [{ "name": "Felix", "kind": "cat", "alive": true }]
+  },
+  {
+    "username": "ziziou91",
+    "pets": [{ "name": "Karl", "kind": "llama", "alive": true }]
+  },
+  {
+    "username": "rogersop",
+    "pets": [
+      { "name": "Dave", "kind": "cat", "alive": false },
+      { "name": "Pinchy", "kind": "lobster", "alive": false }
+    ]
+  }
+]
