@@ -1,7 +1,8 @@
 const https = require("https");
 const { fileGenerator } = require("../utils/fileGenerator");
 
-// Making a request to an API and receiving the response. We are the client.
+// Making a request to a server and receiving the response (data about poeple inc. northcoders), then storing the response data locally. [We are the client].
+// -> later we will create a web server, and serve this data to the world...
 
 const getInstructions = () => {
   const options = {
