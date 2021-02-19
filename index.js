@@ -9,8 +9,8 @@ const {
 
 const server = http.createServer((request, response) => {
   const { url, method } = request;
-  const splitUser = url.split("/");
-  const username = splitUser[splitUser.length - 1];
+  const splitUrl = url.split("/");
+  const username = splitUrl[splitUrl.length - 1];
 
   if (url === "/api" && method === "GET") {
     response.statusCode = 200;
