@@ -29,11 +29,7 @@
     "age": 6,
     "grumpy": true
   },
-  {
-    "name": "Charly",
-    "age": 27,
-    "grumpy": false
-  },
+  null,
   {
     "name": "Charly",
     "age": 27,

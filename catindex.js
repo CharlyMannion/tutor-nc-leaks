@@ -12,6 +12,23 @@ const getCats = function (request, response) {
   });
 };
 
+// const postCat = (request, response) => {
+//   sendCat((err, cat) => {
+//     if (err) console.log(err);
+//     else {
+//       let body = "";
+//       request.on("data", (packet) => {
+//         body += packet.toString();
+//       });
+//       request.on("end", () => {
+//         const newCatObj = JSON.parse(cat);
+//       });
+//       response.write("got the cat thanks");
+//       response.end();
+//     }
+//   });
+// };
+
 // ----- model ------
 const fetchCats = function (cb) {
   fs.readFile("./data/data.json", "utf8", (err, data) => {
@@ -23,6 +40,23 @@ const fetchCats = function (cb) {
     }
   });
 };
+
+// const sendCat = (cb, catObj) => {
+//   fs.readFile("./data/data.json", "utf8", (err, data) => {
+//     if (err) console.log(err);
+//     else {
+//       const parsedData = JSON.parse(data);
+//       parsedData.push(catObj);
+//       fs.writeFile("./data/data.json", JSON.stringify(parsedData), (err) => {
+//         if (err) console.log(err);
+//         else {
+//           console.log("hoora!");
+//           cb(null, catObj);
+//         }
+//       });
+//     }
+//   });
+// };
 
 // ---- server -----
 
@@ -43,13 +77,13 @@ const server = http.createServer((request, response) => {
       });
       request.on("end", () => {
         const newCatObj = JSON.parse(body);
-        fs.readFile("./data.json", "utf8", (err, data) => {
+        fs.readFile("./data/data.json", "utf8", (err, data) => {
           if (err) console.log(err);
           else {
             const parsedData = JSON.parse(data);
             parsedData.push(newCatObj);
             fs.writeFile(
-              "./data.json",
+              "./data/data.json",
               JSON.stringify(parsedData, null, 2),
               (err) => {
                 if (err) console.log(err);
@@ -62,6 +96,9 @@ const server = http.createServer((request, response) => {
       response.write("got the cat thanks");
       response.end();
     }
+    // if (method === "POST") {
+    //   postCat(request, response);
+    // }
   }
 });
 
