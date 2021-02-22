@@ -12,22 +12,28 @@ const getCats = function (request, response) {
   });
 };
 
-// const postCat = (request, response) => {
-//   sendCat((err, cat) => {
-//     if (err) console.log(err);
-//     else {
-//       let body = "";
-//       request.on("data", (packet) => {
-//         body += packet.toString();
-//       });
-//       request.on("end", () => {
-//         const newCatObj = JSON.parse(cat);
-//       });
-//       response.write("got the cat thanks");
-//       response.end();
-//     }
-//   });
-// };
+const postCat = (request, response) => {
+  let newCat = "";
+  request.on("data", (packet) => {
+    newCat += packet.toString();
+  });
+  request.on("end", () => {
+    sendCat(newCat, (err, cat) => {
+      if (err) console.log(err);
+      else {
+        // response.setHeader('Content-Type', 'application/json');
+        // response.statusCode = 201;
+        response.write(
+          JSON.stringify({
+            cat,
+            message: `Successfully added ${cat.name} to the database`,
+          })
+        );
+        response.end();
+      }
+    });
+  });
+};
 
 // ----- model ------
 const fetchCats = function (cb) {
@@ -41,22 +47,27 @@ const fetchCats = function (cb) {
   });
 };
 
-// const sendCat = (cb, catObj) => {
-//   fs.readFile("./data/data.json", "utf8", (err, data) => {
-//     if (err) console.log(err);
-//     else {
-//       const parsedData = JSON.parse(data);
-//       parsedData.push(catObj);
-//       fs.writeFile("./data/data.json", JSON.stringify(parsedData), (err) => {
-//         if (err) console.log(err);
-//         else {
-//           console.log("hoora!");
-//           cb(null, catObj);
-//         }
-//       });
-//     }
-//   });
-// };
+const sendCat = (catObj, cb) => {
+  fetchCats((err, existingCats) => {
+    const newCatID = existingCats.length + 1;
+    const parsedNewCat = {
+      ...JSON.parse(catObj),
+      id: newCatID,
+    };
+
+    fs.writeFile(
+      "./data/data.json",
+      JSON.stringify(parsedNewCat, null, 2),
+      (err) => {
+        if (err) console.log(err);
+        else {
+          console.log("hoora!");
+          cb(null, parsedNewCat);
+        }
+      }
+    );
+  });
+};
 
 // ---- server -----
 
@@ -70,35 +81,35 @@ const server = http.createServer((request, response) => {
     if (method === "GET") {
       getCats(request, response); // controller
     }
-    if (method === "POST") {
-      let body = "";
-      request.on("data", (packet) => {
-        body += packet.toString();
-      });
-      request.on("end", () => {
-        const newCatObj = JSON.parse(body);
-        fs.readFile("./data/data.json", "utf8", (err, data) => {
-          if (err) console.log(err);
-          else {
-            const parsedData = JSON.parse(data);
-            parsedData.push(newCatObj);
-            fs.writeFile(
-              "./data/data.json",
-              JSON.stringify(parsedData, null, 2),
-              (err) => {
-                if (err) console.log(err);
-                else console.log("hoora!");
-              }
-            );
-          }
-        });
-      });
-      response.write("got the cat thanks");
-      response.end();
-    }
     // if (method === "POST") {
-    //   postCat(request, response);
+    //   let body = "";
+    //   request.on("data", (packet) => {
+    //     body += packet.toString();
+    //   });
+    //   request.on("end", () => {
+    //     const newCatObj = JSON.parse(body);
+    //     fs.readFile("./data/data.json", "utf8", (err, data) => {
+    //       if (err) console.log(err);
+    //       else {
+    //         const parsedData = JSON.parse(data);
+    //         parsedData.push(newCatObj);
+    //         fs.writeFile(
+    //           "./data/data.json",
+    //           JSON.stringify(parsedData, null, 2),
+    //           (err) => {
+    //             if (err) console.log(err);
+    //             else console.log("hoora!");
+    //           }
+    //         );
+    //       }
+    //     });
+    //   });
+    //   response.write("got the cat thanks");
+    //   response.end();
     // }
+    if (method === "POST") {
+      postCat(request, response);
+    }
   }
 });
 
