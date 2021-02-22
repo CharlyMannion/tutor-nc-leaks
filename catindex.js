@@ -1,6 +1,8 @@
 const http = require("http");
 const fs = require("fs");
 
+// SEE NODE SEVER EXAMPLE FOR SEPARATED FILES
+
 // ---- controller -----
 const getCats = function (request, response) {
   fetchCats((err, cats) => {
