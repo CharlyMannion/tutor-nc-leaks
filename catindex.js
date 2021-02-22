@@ -81,32 +81,6 @@ const server = http.createServer((request, response) => {
     if (method === "GET") {
       getCats(request, response); // controller
     }
-    // if (method === "POST") {
-    //   let body = "";
-    //   request.on("data", (packet) => {
-    //     body += packet.toString();
-    //   });
-    //   request.on("end", () => {
-    //     const newCatObj = JSON.parse(body);
-    //     fs.readFile("./data/data.json", "utf8", (err, data) => {
-    //       if (err) console.log(err);
-    //       else {
-    //         const parsedData = JSON.parse(data);
-    //         parsedData.push(newCatObj);
-    //         fs.writeFile(
-    //           "./data/data.json",
-    //           JSON.stringify(parsedData, null, 2),
-    //           (err) => {
-    //             if (err) console.log(err);
-    //             else console.log("hoora!");
-    //           }
-    //         );
-    //       }
-    //     });
-    //   });
-    //   response.write("got the cat thanks");
-    //   response.end();
-    // }
     if (method === "POST") {
       postCat(request, response);
     }
